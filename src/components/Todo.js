@@ -11,6 +11,10 @@ function Todo(props) {
         setModalIsOpen(true);
     }
 
+    function closeModalHandler(){
+
+    }
+
     return (
         <div className='card'> 
             <h2>{props.text}</h2>
@@ -19,8 +23,8 @@ function Todo(props) {
                     delete
                 </button>
             </div>
-            { modalisOpen ? <Modal /> : null }  {/* = { modalisOpen && <Modal /> } , 양쪽이 모두 true이면 두번째 값이 반환됨.  */}
-            { modalisOpen && <Backdrop /> }
+            { modalisOpen ? <Modal onCancle={closeModalHandler} onConfirm = {closeModalHandler}/> : null }  {/* = { modalisOpen && <Modal /> } , 양쪽이 모두 true이면 두번째 값이 반환됨.  */}
+            { modalisOpen && <Backdrop onClick={closeModalHandler}/> }
             
         </div>
     );
